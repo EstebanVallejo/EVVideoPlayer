@@ -1,0 +1,12 @@
+source 'https://github.com/CocoaPods/Specs.git'
+use_frameworks!
+
+target 'EVVideoPlayer_Example', :exclusive => true do
+  pod "EVVideoPlayer", :path => "../"
+end
+
+target 'EVVideoPlayer_Tests', :exclusive => true do
+  pod "EVVideoPlayer", :path => "../"
+
+  
+end
