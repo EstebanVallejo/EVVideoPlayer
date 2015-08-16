@@ -1,0 +1,14 @@
+PODS:
+  - EVVideoPlayer (0.1.0)
+
+DEPENDENCIES:
+  - EVVideoPlayer (from `../`)
+
+EXTERNAL SOURCES:
+  EVVideoPlayer:
+    :path: ../
+
+SPEC CHECKSUMS:
+  EVVideoPlayer: 6c0561a1a77f8221f50da25026f67745a3ca1515
+
+COCOAPODS: 0.38.2

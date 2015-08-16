@@ -7,23 +7,27 @@
 //
 
 #import "EVViewController.h"
+#import <EVVideoPlayer/EVVideoPlayer.h>
 
 @interface EVViewController ()
-
+@property (nonatomic, weak) IBOutlet EVVideoPlayer *videoPlayer;
 @end
 
 @implementation EVViewController
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+- (void)viewDidLoad {
+  [super viewDidLoad];
+  
+  [self configureVideoPlayer];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)configureVideoPlayer {
+  NSString *urlString = [[NSBundle mainBundle] pathForResource:@"BlackBerry" ofType:@"mp4"];
+  NSURL *url = [[NSURL alloc] initFileURLWithPath:urlString];
+  
+  [self.videoPlayer tapToPlayOrPauseEnabled:true];
+  
+  [self.videoPlayer setVideoURL:url];
 }
 
 @end

@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Esteban Vallejo. All rights reserved.
 //
 
-@import UIKit;
+#import <UIKit/UIKit.h>
 
 @interface EVAppDelegate : UIResponder <UIApplicationDelegate>
 

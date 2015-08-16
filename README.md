@@ -22,7 +22,7 @@ pod "EVVideoPlayer"
 
 ## Author
 
-Esteban Vallejo, evallejo@candoit.com.ar
+Esteban Vallejo, evallejo@gmail.com
 
 ## License
 
