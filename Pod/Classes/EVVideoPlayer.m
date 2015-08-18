@@ -183,15 +183,6 @@ static CGFloat const kProgressUpdateFrecuency = 0.5f;
   self.playPauseTap.enabled = enabled;
 }
 
-//- (void)panToSeekEnabled:(BOOL)enabled {
-//  if (!self.seekPan && enabled) {
-//    self.seekPan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(seekPanAction:)];
-//    [self addGestureRecognizer:self.seekPan];
-//  }
-//  
-//  self.seekPan.enabled = enabled;
-//}
-
 #pragma mark - Private methods
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object
                         change:(NSDictionary *)change context:(void *)context {
@@ -308,33 +299,5 @@ static CGFloat const kProgressUpdateFrecuency = 0.5f;
       break;
   }
 }
-
-//- (void)seekPanAction:(UIPanGestureRecognizer *)pan {
-//  if (pan != self.seekPan) { return; }
-//  
-//  CGPoint velocity = [pan velocityInView:self];
-//  UIGestureRecognizerState state = pan.state;
-//  
-//  if (state == UIGestureRecognizerStateBegan || state == UIGestureRecognizerStateChanged) {
-//    if (velocity.x > 0) {
-//      // RWD
-//      CGFloat newSeconds = self.currentTime - 1;
-//      if (newSeconds < 0) {
-//        newSeconds = 0;
-//      }
-//      CMTime newTime = CMTimeMakeWithSeconds(newSeconds, self.playerItem.currentTime.timescale);
-//      [self.player seekToTime:newTime];
-//      
-//    } else if (velocity.x < 0) {
-//      // FWD
-//      CGFloat newSeconds = self.currentTime + 1;
-//      if (newSeconds > self.videoLenght) {
-//        newSeconds = self.videoLenght;
-//      }
-//      CMTime newTime = CMTimeMakeWithSeconds(newSeconds, self.playerItem.currentTime.timescale);
-//      [self.player seekToTime:newTime];
-//    }
-//  }
-//}
 
 @end
