@@ -117,8 +117,6 @@ static CGFloat const kProgressUpdateFrecuency = 0.5f;
   if (self.player) {
     self.player.rate = 1.0;
     self.status = EVVideoPlayerStatusPlaying;
-  } else {
-    NSLog(@"%@ - %@ :: %@", NSStringFromClass(self.class), NSStringFromSelector(_cmd), @"Video URL has not been set");
   }
 }
 
@@ -131,8 +129,6 @@ static CGFloat const kProgressUpdateFrecuency = 0.5f;
   if (self.player) {
     self.player.rate = 0.0;
     self.status = EVVideoPlayerStatusPaused;
-  } else {
-    NSLog(@"%@ - %@ :: %@",NSStringFromClass(self.class), NSStringFromSelector(_cmd), @"Video URL has not been set");
   }
 }
 
@@ -147,8 +143,6 @@ static CGFloat const kProgressUpdateFrecuency = 0.5f;
   if (self.player) {
     CMTime newTime = CMTimeMakeWithSeconds(percentage * self.playerItem.duration.value, self.playerItem.currentTime.timescale);
     [self.player seekToTime:newTime];
-  } else {
-    NSLog(@"%@ - %@ :: %@",NSStringFromClass(self.class), NSStringFromSelector(_cmd), @"Video URL has not been set");
   }
 }
 
@@ -315,32 +309,32 @@ static CGFloat const kProgressUpdateFrecuency = 0.5f;
   }
 }
 
-- (void)seekPanAction:(UIPanGestureRecognizer *)pan {
-  if (pan != self.seekPan) { return; }
-  
-  CGPoint velocity = [pan velocityInView:self];
-  UIGestureRecognizerState state = pan.state;
-  
-  if (state == UIGestureRecognizerStateBegan || state == UIGestureRecognizerStateChanged) {
-    if (velocity.x > 0) {
-      // RWD
-      CGFloat newSeconds = self.currentTime - 1;
-      if (newSeconds < 0) {
-        newSeconds = 0;
-      }
-      CMTime newTime = CMTimeMakeWithSeconds(newSeconds, self.playerItem.currentTime.timescale);
-      [self.player seekToTime:newTime];
-      
-    } else if (velocity.x < 0) {
-      // FWD
-      CGFloat newSeconds = self.currentTime + 1;
-      if (newSeconds > self.videoLenght) {
-        newSeconds = self.videoLenght;
-      }
-      CMTime newTime = CMTimeMakeWithSeconds(newSeconds, self.playerItem.currentTime.timescale);
-      [self.player seekToTime:newTime];
-    }
-  }
-}
+//- (void)seekPanAction:(UIPanGestureRecognizer *)pan {
+//  if (pan != self.seekPan) { return; }
+//  
+//  CGPoint velocity = [pan velocityInView:self];
+//  UIGestureRecognizerState state = pan.state;
+//  
+//  if (state == UIGestureRecognizerStateBegan || state == UIGestureRecognizerStateChanged) {
+//    if (velocity.x > 0) {
+//      // RWD
+//      CGFloat newSeconds = self.currentTime - 1;
+//      if (newSeconds < 0) {
+//        newSeconds = 0;
+//      }
+//      CMTime newTime = CMTimeMakeWithSeconds(newSeconds, self.playerItem.currentTime.timescale);
+//      [self.player seekToTime:newTime];
+//      
+//    } else if (velocity.x < 0) {
+//      // FWD
+//      CGFloat newSeconds = self.currentTime + 1;
+//      if (newSeconds > self.videoLenght) {
+//        newSeconds = self.videoLenght;
+//      }
+//      CMTime newTime = CMTimeMakeWithSeconds(newSeconds, self.playerItem.currentTime.timescale);
+//      [self.player seekToTime:newTime];
+//    }
+//  }
+//}
 
 @end

@@ -40,7 +40,7 @@ typedef enum {
 
 // Gesture recognizers
 @property (nonatomic, strong) UITapGestureRecognizer *playPauseTap;
-@property (nonatomic, strong) UIPanGestureRecognizer *seekPan;
+//@property (nonatomic, strong) UIPanGestureRecognizer *seekPan; // Coming Soon
 
 // Delegate
 @property (nonatomic, assign) id<EVVideoPlayerDelegate> delegate;
